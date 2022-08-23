@@ -7,15 +7,17 @@ function Todo({ todo }) {
     return (
         <Box sx={{ margin: '0rem 1rem', padding: '0rem 1rem' }}>
             <Divider my="sm" />
-            <Box style={{ display: 'flex', justifyContent: 'space-between' }}>
-
-                <Checkbox
-                    checked={status === 'complete' ? true : false}
-                    label={text}
-                    color="green"
-                    radius="xl"
-                    style={{ cursor: 'pointer' }}
-                />
+            <Box style={{ display: 'flex', justifyContent: 'space-between', justifyItems: 'center' }}>
+                <Box sx={{ display: 'flex', gap: '10px', }}>
+                    <Checkbox
+                        checked={status === 'complete' ? true : false}
+                        // label={text}
+                        color="green"
+                        radius="xl"
+                        style={{ cursor: 'pointer' }}
+                    />
+                    <Box style={{ textDecoration: status === 'complete' ? 'line-through' : 'none' }}>{text}</Box>
+                </Box>
                 <Box sx={{ display: 'flex', gap: '1rem' }}>
                     <Box style={{ cursor: 'pointer', width: '1rem', height: '1rem', borderRadius: '50%', color: 'red', border: '2px solid red', background: color === 'red' ? 'red' : '', }}>
 

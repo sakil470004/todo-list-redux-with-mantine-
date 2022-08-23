@@ -21,7 +21,7 @@ function WriteHome() {
             <form onSubmit={handleAddNewTodo}
                 style={{ padding: '0.7rem 0.7rem', backgroundColor: '#F5F5F5', borderRadius: '0.7rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
             >
-                <img src={notesImg} style={{ width: '2rem', height: '2rem', marginRight: '0px' }} alt="note" />
+                <img src={notesImg} style={{ width: '2rem', height: '2rem', marginLeft: '1rem' }} alt="note" />
                 <input
                     style={{ margin: '0.5rem 0.7rem', padding: '0.7rem 1rem', borderRadius: '0.7rem', outline: 'none', border: 'none', color: '#222', backgroundColor: '#F5F5F5', fontSize: '20px', marginLeft: '0px' }}
                     value={currentValue}
@@ -34,16 +34,16 @@ function WriteHome() {
                     type="submit"
                     style={{ display: 'none' }}
                 ></button>
-                <img src={plusImg} style={{ width: '2rem', height: '2rem' }} alt="plus" />
+                <img src={plusImg} style={{ width: '2rem', height: '2rem', marginRight: '1rem' }} alt="plus" />
 
             </form>
-            <ul style={{ display: 'flex', justifyContent: 'space-between', margin: '1rem 0rem', listStyle: 'none', color: 'black' }} >
+            <ul style={{ display: 'flex', justifyContent: 'space-between', margin: '1rem 0', padding: '0rem 1rem', listStyle: 'none', color: 'black' }} >
                 <li
 
                     style={{ display: 'flex', cursor: 'pointer', gap: '10px' }}
                     onClick={handleCompleteAll}
                 >
-                    <img style={{ width: '2rem', height: '2rem' }} src={tickImg} alt="Complete" />
+                    <img style={{ width: '1.5rem', height: '1.5rem' }} src={tickImg} alt="Complete" />
                     <span>Complete All Tasks</span>
                 </li>
                 <li className="cursor-pointer" onClick={handleClearCompleted}>

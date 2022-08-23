@@ -7,7 +7,7 @@ function Home() {
 
     return (
         <Center>
-            <Card shadow="sm" p="lg" radius="md" withBorder sx={{ width: '55vw' }}>
+            <Card shadow="sm" p="lg" radius="md" withBorder sx={{ width: 'min(700px, 95%)' }}>
 
                 <WriteHome />
                 <Todos />
