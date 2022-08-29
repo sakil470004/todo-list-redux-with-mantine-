@@ -3,18 +3,22 @@ import tickImg from "./../../assets/images/double-tick.png";
 import notesImg from "./../../assets/images/notes.png";
 import plusImg from "./../../assets/images/plus.png";
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addtodo, allcompleted, clearcompleted } from '../../redux/todo/todo.actions';
 
 function WriteHome() {
-    const [currentValue, setCurrentValue] = useState('')
+    const [text, setText] = useState('')
+    const dispatch = useDispatch();
     const handleAddNewTodo = (e) => {
-
+        dispatch(addtodo(text));
+        setText("");
         e.preventDefault()
     }
     const handleCompleteAll = () => {
-
+        dispatch(allcompleted());
     }
     const handleClearCompleted = () => {
-
+        dispatch(clearcompleted());
     }
     return (
         <>
@@ -24,11 +28,11 @@ function WriteHome() {
                 <img src={notesImg} style={{ width: '2rem', height: '2rem', marginLeft: '1rem' }} alt="note" />
                 <input
                     style={{ margin: '0.5rem 0.7rem', padding: '0.7rem 1rem', borderRadius: '0.7rem', outline: 'none', border: 'none', color: '#222', backgroundColor: '#F5F5F5', fontSize: '20px', marginLeft: '0px' }}
-                    value={currentValue}
+                    value={text}
                     type="text"
                     placeholder="Type Your Todo"
                     className="w-full text-lg px-4 py-1 border-none outline-none bg-gray-100 text-gray-500"
-                    onChange={(e) => setCurrentValue(e.target.value)}
+                    onChange={(e) => setText(e.target.value)}
                 />
                 <button
                     type="submit"
@@ -43,10 +47,10 @@ function WriteHome() {
                     style={{ display: 'flex', cursor: 'pointer', gap: '10px' }}
                     onClick={handleCompleteAll}
                 >
-                    <img style={{ width: '1.5rem', height: '1.5rem' }} src={tickImg} alt="Complete" />
+                    <img style={{ width: '1.5rem', height: '1.5rem', }} src={tickImg} alt="Complete" />
                     <span>Complete All Tasks</span>
                 </li>
-                <li className="cursor-pointer" onClick={handleClearCompleted}>
+                <li style={{ cursor: 'pointer' }} onClick={handleClearCompleted}>
                     Clear completed
                 </li>
             </ul>
